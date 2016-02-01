@@ -2,7 +2,7 @@
 # This file is puppet generated.
 
 template bgp ibgp {
-  local as <%= $local_as %>;
+  local <%= $source %> as <%= $local_as %>;
   import all;
   export where (source = RTS_BGP);
   next hop self;

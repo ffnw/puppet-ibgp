@@ -15,7 +15,7 @@
 
 Manages iBGP route exchange.
 
-To do so this module opens gre tunnels to the peers and creates bird configuration files.
+To do so this module creates bird configuration files.
 
 ## Setup
 
@@ -23,7 +23,6 @@ To do so this module opens gre tunnels to the peers and creates bird configurati
 
 * puppet modules
   * ffnw-bird
-  * ffnw-network
 
 ### Beginning with ibgp
 
@@ -45,9 +44,6 @@ class { '::ibgp':
 }
 
 ibgp::peer { 'gw02':
-  transfer  => '100.64.0.0/31',
-  transfer6 => 'fd00::1/64',
-  endpoint  => '10.20.30.40',
   neighbor  => '1.2.3.5',
   neighbor6 => 'fc00::2',
 }
@@ -61,9 +57,6 @@ ibgp::peer { 'gw02':
   * $source6
 
 * define ibgp::peer
-  * $transfer
-  * $transfer6
-  * $endpoint
   * $neighbor
   * $neighbor6
 

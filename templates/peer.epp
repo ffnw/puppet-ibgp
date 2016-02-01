@@ -1,4 +1,3 @@
 protocol bgp "ibgp-<%= $title %>" from ibgp {
-  source address <%= $source %>;
   neighbor <%= $neighbor %> as <%= $local_as %>;
 }
