@@ -27,7 +27,7 @@ To do so this module creates bird configuration files.
 ### Beginning with ibgp
 
 ```puppet
-class { '::ibgp':
+class { 'ibgp':
   local_as => 65536,
   source   => '1.2.3.4',
   source6  => 'fc00::1',
@@ -37,7 +37,7 @@ class { '::ibgp':
 ## Usage
 
 ```puppet
-class { '::ibgp':
+class { 'ibgp':
   local_as => 65536,
   source   => '1.2.3.4',
   source6  => 'fc00::1',

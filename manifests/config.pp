@@ -28,4 +28,11 @@ class ibgp::config inherits ibgp {
       notify  => File['/etc/bird/bird6.conf'];
   }
 
+  @@ibgp::peer { $networking['fqdn']:
+    tag       => "AS-${local_as}",
+    neighbor  => $source,
+    neighbor6 => $source6,
+  }
+  Ibgp::Peer <<| tag == "AS-${local_as}" and neighbor != $source and neighbor6 != $source6 |>>
+
 }
