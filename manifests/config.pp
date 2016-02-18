@@ -1,6 +1,7 @@
 class ibgp::config inherits ibgp {
 
-  require '::bird'
+  require router
+  require bird
 
   file {
     '/etc/bird/bird.conf.d/ibgp/':
