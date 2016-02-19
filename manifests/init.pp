@@ -11,4 +11,6 @@ class ibgp (
 
   class { 'ibgp::config': }
 
+  create_resources('ibgp::peer', hiera('ibgp::peer', {}))
+
 }
