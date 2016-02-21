@@ -12,13 +12,13 @@ define ibgp::peer (
   file {
     "/etc/bird/bird.conf.d/ibgp/${title}.conf":
       ensure  => file,
-      mode    => "0644",
-      content => epp("ibgp/peer.epp"),
+      mode    => '0644',
+      content => epp('ibgp/peer.epp'),
       notify  => File['/etc/bird/bird.conf.d/ibgp.conf'];
     "/etc/bird/bird6.conf.d/ibgp/${title}.conf":
       ensure  => file,
-      mode    => "0644",
-      content => epp("ibgp/peer6.epp"),
+      mode    => '0644',
+      content => epp('ibgp/peer6.epp'),
       notify  => File['/etc/bird/bird6.conf.d/ibgp.conf'];
   }
 
