@@ -7,9 +7,9 @@ class ibgp (
   validate_ip_address($source)
   validate_ip_address($source6)
 
-  contain ibgp::config
-
   class { 'ibgp::config': }
+
+  contain ibgp::config
 
   create_resources('ibgp::peer', hiera('ibgp::peer', {}))
 
