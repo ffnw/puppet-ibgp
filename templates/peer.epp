@@ -1,3 +1,7 @@
+<%- | $title,
+      $neighbor,
+      $local_as,
+| -%>
 protocol bgp "ibgp-<%= $title %>" from ibgp {
   neighbor <%= $neighbor %> as <%= $local_as %>;
 }

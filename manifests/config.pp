@@ -12,7 +12,7 @@ class ibgp::config inherits ibgp {
     '/etc/bird/bird.conf.d/ibgp.conf':
       ensure  => file,
       mode    => '0644',
-      content => epp('ibgp/bird.epp'),
+      content => epp('ibgp/bird.epp', { source => $source, local_as => $local_as }),
       notify  => File['/etc/bird/bird.conf'];
   }
 
@@ -25,7 +25,7 @@ class ibgp::config inherits ibgp {
     '/etc/bird/bird6.conf.d/ibgp.conf':
       ensure  => file,
       mode    => '0644',
-      content => epp('ibgp/bird6.epp'),
+      content => epp('ibgp/bird6.epp', { source6 => $source6, local_as => $local_as }),
       notify  => File['/etc/bird/bird6.conf'];
   }
 
