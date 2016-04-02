@@ -6,14 +6,11 @@
 
 template bgp ibgp {
   local <%= $source %> as <%= $local_as %>;
-  import all;
-  export filter {
-    if source = RTS_BGP then {
-      preference = 90;
-      accept;
-    }
-    reject;
+  import filter {
+    preference = 90;
+    accept;
   };
+  export where (source = RTS_BGP);
   next hop self;
 }
 
